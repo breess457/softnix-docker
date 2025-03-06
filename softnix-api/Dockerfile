@@ -1,5 +1,7 @@
 FROM node:20
 
+RUN mkdir -p /app
+
 WORKDIR /app
 
 RUN npm install -g npm@6
@@ -7,9 +9,11 @@ RUN npm install -g npm@6
 RUN git config --global http.postBuffer 524288000 \
     && git clone https://github.com/breess457/softnix-backend.git
 
+WORKDIR /app/softnix-backend
+
 RUN ls -l /app
 
-# COPY package*.json ./
+COPY package*.json ./
 
 RUN npm install -g npm@6
 
