@@ -6,24 +6,20 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3001:3001"
+    restart: always
     container_name: suftnix-api
     environment:
      - NODE_ENV=production
-    networks:
-      - softnix-network
+    depends_on:
+      - frontend
 
   frontend:
     build:
       context: softnix-ui/
       dockerfile: Dockerfile
     ports:
-      - "5173:5173"
+      - "80:80"
+    restart: always
     container_name: suftnix-ui
     environment:
      - NODE_ENV=production
-    networks:
-      - softnix-network
-
-networks:
-  softnix-network:
-    driver: bridge
