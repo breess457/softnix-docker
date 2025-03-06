@@ -1,5 +1,7 @@
 # softnix-docker
 
+please read
+
 install docker
 
 clone github

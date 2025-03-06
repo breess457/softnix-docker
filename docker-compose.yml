@@ -9,6 +9,8 @@ services:
     container_name: suftnix-api
     environment:
      - NODE_ENV=production
+    networks:
+      - softnix-network
 
   frontend:
     build:
@@ -19,3 +21,9 @@ services:
     container_name: suftnix-ui
     environment:
      - NODE_ENV=production
+    networks:
+      - softnix-network
+
+networks:
+  softnix-network:
+    driver: bridge
